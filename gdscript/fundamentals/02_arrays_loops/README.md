@@ -2,178 +2,110 @@
 
 ## Overview
 
-**Focus:** Working with arrays, iterating through collections, searching for elements, counting occurrences, and modifying array contents.
+**Main focus:** Understanding arrays, loops, and how to manipulate collections of data.
 
-**Engine:** Godot 4.7.2  
-**Language:** GDScript  
-**Execution:** Headless mode using the Godot command line.
+**Status:** Completed
 
-## Learning Objectives
+**Exercises completed:** 5/5
 
-By completing this day, I practiced how to:
+## Learning objectives
 
-- Create and initialize arrays.
+By the end of this day, I practiced how to:
+
+- Create and work with arrays.
 - Iterate through arrays using `for` loops.
-- Access and compare array elements.
-- Use conditional statements inside loops.
-- Check whether an element exists in an array.
-- Count how many times an element appears.
-- Add and remove elements from arrays.
-- Use Boolean variables as flags.
-- Use integer variables as counters.
-- Return values from functions.
-- Modify collections through function parameters.
+- Search for specific elements.
+- Count matching elements.
+- Add and remove elements.
+- Use Boolean variables to track search results.
+- Use integer counters.
+- Create functions that return `bool`, `int`, or `void`.
+- Combine multiple functions into a small system.
 
-## Exercises Completed
+## Exercises
 
-### Exercise 01 — Inventory Inspector
+| Exercise | Name | Main concepts |
+|---|---|---|
+| 01 | Inventory Inspector | Arrays, loops, conditions, append, size |
+| 02 | Inventory Item Search | Boolean flags, searching, return values |
+| 03 | Inventory Item Counter | Integer counters, loops |
+| 04 | Remove an Inventory Item | erase, break, Boolean results |
+| 05 | Inventory Manager | Functions, arrays, loops, system organization |
 
-**File:** `exercise_01.gd`
+## Project structure
 
-**Concepts:**
-- Array creation and initialization.
-- `for` loops.
-- Conditional statements.
-- `Array.size()`.
-- `Array.append()`.
+```text
+day-02/
+├── README.md
+├── NOTES.md
+├── EXERCISES.md
+├── exercise_01.gd
+├── exercise_02.gd
+├── exercise_03.gd
+├── exercise_04.gd
+└── exercise_05.gd
+```
 
-**Objective:**
+## Important concepts learned
 
-Inspect an RPG inventory, display its contents, identify specific items, add a new item, and display the updated inventory size.
+### Arrays
 
-**Result:** Successfully implemented and executed.
+Arrays store multiple values in a single variable.
 
-### Exercise 02 — Inventory Item Search
+```gdscript
+var inventory = ["Health Potion", "Iron Sword"]
+```
 
-**File:** `exercise_02.gd`
+### Loops
 
-**Concepts:**
-- Arrays.
-- `for` loops.
-- Conditional statements.
-- Boolean variables.
-- Functions and parameters.
-- Boolean return values.
-
-**Objective:**
-
-Create a `has_item()` function that searches an inventory and determines whether a requested item exists.
-
-**Result:** Successfully implemented and tested with existing and missing items.
-
-### Exercise 03 — Inventory Item Counter
-
-**File:** `exercise_03.gd`
-
-**Concepts:**
-- Arrays.
-- `for` loops.
-- Conditional statements.
-- Integer variables.
-- Incrementing counters (`+= 1`).
-- Functions and parameters.
-- Integer return values.
-
-**Objective:**
-
-Create a `count_item()` function that counts how many times a requested item appears in an inventory.
-
-**Result:** Successfully implemented and tested with different items and quantities.
-
-### Exercise 04 — Remove an Inventory Item
-
-**File:** `exercise_04.gd`
-
-**Concepts:**
-- Arrays.
-- `for` loops.
-- Conditional statements.
-- `Array.erase()`.
-- Functions and parameters.
-- Boolean return values.
-- Modifying collections.
-- Early returns.
-
-**Objective:**
-
-Create a `remove_item()` function that searches for an item, removes its first occurrence, and reports whether the removal was successful.
-
-**Result:** Successfully implemented and tested. The function removes only the first matching occurrence.
-
-## Key Concepts Learned
-
-### 1. Iterating Through Arrays
-
-A `for` loop allows us to inspect every element in an array.
+A `for` loop allows us to process every element in an array.
 
 ```gdscript
 for item in inventory:
     print(item)
 ```
 
-### 2. Searching for Elements
+### Searching
 
-A Boolean flag can remember whether an element was found.
+Boolean variables can track whether an element was found.
 
-```gdscript
-var item_found: bool = false
+### Counting
 
-for item in inventory:
-    if item == item_name:
-        item_found = true
+Integer counters can track how many times a specific element appears.
 
-return item_found
-```
+### Modifying arrays
 
-### 3. Counting Elements
-
-An integer counter can track how many matching elements exist.
-
-```gdscript
-var item_count: int = 0
-
-for item in inventory:
-    if item == item_name:
-        item_count += 1
-
-return item_count
-```
-
-### 4. Modifying Arrays
-
-Godot provides methods for modifying arrays.
-
-- `append()` adds an element to the end.
-- `erase()` removes the first occurrence of a specified value.
+- `append()` adds an element.
+- `erase()` removes the first matching element.
 - `size()` returns the number of elements.
 
-### 5. Early Returns
+### Return values
 
-`return` immediately exits a function and sends a value back to its caller.
+- `bool`: Returns `true` or `false`.
+- `int`: Returns an integer.
+- `void`: Does not return a value.
 
-This is useful when a function finds the result it needs before finishing its loop.
+## Final result
 
-## Running the Exercises
+Exercise 05 combined the previous exercises into a small Inventory Manager with five functions:
 
-All exercises can be executed from the Day 2 directory using Godot's headless mode:
+- `add_item()`
+- `has_item()`
+- `count_item()`
+- `remove_item()`
+- `display_inventory()`
 
-```bash
-godot --headless --script exercise_01.gd
-godot --headless --script exercise_02.gd
-godot --headless --script exercise_03.gd
-godot --headless --script exercise_04.gd
-```
+The program successfully added, searched, counted, removed, and displayed inventory items.
 
-## Day 2 Summary
+## Day 2 conclusion
 
-**Status:** Completed
+I completed all five exercises and practiced combining smaller functions into a single program.
 
-Four exercises were successfully implemented and executed.
+**Next step:** Week 1 — Day 3: Build a Health System.
 
-By the end of this day, I practiced combining arrays, loops, conditions, and functions to implement basic inventory operations.
-
-These concepts are useful foundations for more advanced gameplay systems, particularly inventory management, item collection, equipment systems, and resource tracking.
-
-## Next Learning Step
-
-Continue with Week 1 — Day 3: Building a Health System.
+Topics:
+- Current health and maximum health.
+- Taking damage.
+- Healing.
+- Health validation.
+- Checking whether a character is alive.
