@@ -6,6 +6,10 @@
 	# It must:
 		# Receive current_health as an integer
 		# Receive max_health as an integer
+		# Conditions:
+			# Maximum health must be greater than zero.
+			# Current health cannot be negative.
+			# Current health cannot exceed maximum health.
 		# Return true if all three conditions are satisfied.
 		# Return false otherwise
 
@@ -22,13 +26,19 @@ func _init():
 	print(is_health_valid(50, -100))
 
 func is_health_valid(current_health: int, max_health: int) -> bool:
-	var health_is_valid: bool = false
-	var min_health: int = 0
-	var max_valid_health: int = 0
-	var health = max_health and current_health
+	# Could be:
+		#var maximum_is_valid: bool = max_health > 0
+		#var current_is_valid: bool = current_health >= 0
+		#var health_is_within_limit: bool = current_health <= max_health
 
-	if current_health >= min_health and max_health <= max_valid_health and current_health <= max_health:
-		clamp(current_health, 0, 100)
-		clamp(max_health, 0, 100)
-		health_is_valid = true
-	return health_is_valid
+	# And then combine them:
+		#return maximum_is_valid and current_is_valid and health_is_within_limit
+	var maximum_is_valid: bool = false
+	var current_is_valid: bool = false
+	var health_is_within_limit: bool = false
+
+	if max_health > 0 and current_health >= 0 and current_health <= max_health:
+		maximum_is_valid = true
+		current_is_valid = true
+		health_is_within_limit = true
+	return health_is_within_limit
